@@ -35,3 +35,31 @@ class CommentSerializer(serializers.ModelSerializer, CachedSerializerMixin):
         model = Comment
 
 ```
+
+# Configuration
+
+To the cache successfuly work you must configure the Django CACHES setting. We recomend that you take a look on Django cache docs here [https://docs.djangoproject.com/en/1.9/topics/cache/](https://docs.djangoproject.com/en/1.9/topics/cache/#setting-up-the-cache)
+
+
+## Using cache backend different of the default
+
+If you need use a cache backend different of the default you can specify it on the `RF_CACHE_BACKEND`.
+
+To do this edit your `settings.py` like this:
+
+```python
+# ...
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    },
+    'rest_backend': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
+
+RF_CACHE_BACKEND = 'rest_backend'
+# ...
+```
