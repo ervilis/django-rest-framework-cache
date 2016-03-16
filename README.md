@@ -63,3 +63,15 @@ CACHES = {
 RF_CACHE_BACKEND = 'rest_backend'
 # ...
 ```
+
+
+# How it works
+
+## Accessing the cache
+
+When the representation of `CachedSerializerMixin` is called the fist thing that will be executed is a verification that checks if the request objects is already in cache, if yes the cached object will be returned without touch the database, otherwise the object will be requested to the database stored on cache and returned.
+
+
+## Cleaning the cache
+
+When your serializer is declareted using the `CachedSerializerMixin` the DRF cache register a signal to the serializer model. When a instance of the model has changed or deleted the signal clear related object on the cache backend.
