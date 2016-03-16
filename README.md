@@ -16,6 +16,11 @@ Add `'rest_framework_cache'` to your `INSTALLED_APPS` setting.
     )
 
 
+# Requirements
+
+This lib does not install any dependency, but your project obviously have to be using Django Rest Framework.
+
+
 # Usage
 
 To use the DRF cache you must register your serializer into cache registry ( like django models admin ). You can do it inheriting the `CachedSerializerMixin`:
