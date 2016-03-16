@@ -1,4 +1,7 @@
 # django-rest-framework-cache
+
+[![Build Status](https://travis-ci.org/ervilis/django-rest-framework-cache.svg?branch=master)](https://travis-ci.org/ervilis/django-rest-framework-cache)
+
 DRF Cache provides easy to use, powerful and flexible cache framework for django-rest-framwork apps.
 
 
