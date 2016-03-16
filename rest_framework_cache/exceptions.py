@@ -1,0 +1,5 @@
+
+
+class AlreadyRegistered(BaseException):
+
+    pass
