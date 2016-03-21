@@ -3,15 +3,8 @@ import unittest
 from rest_framework_cache.registry import CacheRegistry
 from rest_framework_cache.exceptions import AlreadyRegistered
 
-
-class TestModel:
-    pass
-
-
-class TestSerializer:
-
-    class Meta:
-        model = TestModel
+from .models import TestModel
+from .serializers import TestSerializer
 
 
 class CacheRegistryTestCase(unittest.TestCase):
