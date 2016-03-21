@@ -18,7 +18,7 @@ setup(
     namespace_packages=['rest_framework_cache'],
     package_dir={'rest_framework_cache': 'rest_framework_cache'},
     download_url="{}/tarball/master".format(github_url),
-    tests_require=["Django", "djangorestframework"],
+    tests_require=["Django", "djangorestframework", "mock"],
     test_suite='tests',
     classifiers=[
         "Development Status :: 3 - Alpha",
