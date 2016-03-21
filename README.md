@@ -68,7 +68,9 @@ CACHES = {
     }
 }
 
-RF_CACHE_BACKEND = 'rest_backend'
+REST_FRAMEWORK_CACHE = {
+    'DEFAULT_BACKEND': 'rest_backend',
+}
 # ...
 ```
 
