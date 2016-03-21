@@ -8,8 +8,8 @@ github_url = "https://github.com/ervilis/django-rest-framework-cache/"
 setup(
     name="rest-framework-cache",
     version=rest_framework_cache.__version__,
-    author="Ervilis Souza",
-    author_email="ervilisviana@gmail.com",
+    author=rest_framework_cache.__author__,
+    author_email=rest_framework_cache.__email__,
     description="Easy to use cache framework for django-rest-framwork apps",
     license="GPLv3",
     keywords="rest_framework_cache",
