@@ -69,7 +69,7 @@ CACHES = {
 }
 
 REST_FRAMEWORK_CACHE = {
-    'DEFAULT_BACKEND': 'rest_backend',
+    'DEFAULT_CACHE_BACKEND': 'rest_backend',
 }
 # ...
 ```
