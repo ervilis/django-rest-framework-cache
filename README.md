@@ -13,10 +13,20 @@ Install using `pip`...
 
 Add `'rest_framework_cache'` to your `INSTALLED_APPS` setting.
 
-    INSTALLED_APPS = (
-        ...
-        'rest_framework_cache',
-    )
+```python
+INSTALLED_APPS = (
+    ...
+    'rest_framework_cache',
+)
+```
+
+You must execute autodiscover to load your serializers. To do this change your `urls.py` adding the following code (sunch as Django admin):
+
+```python
+from rest_framework_cache.registry import cache_registry
+
+cache_registry.autodiscover()
+```
 
 
 # Requirements
@@ -26,13 +36,13 @@ This lib does not install any dependency, but your project obviously have to be 
 
 # Usage
 
-To use the DRF cache you must register your serializer into cache registry ( like django models admin ). You can do it inheriting the `CachedSerializerMixin`:
+To use the DRF cache you must register your serializer into cache registry ( such as Django admin ). You also must change your serializer to inherit the `CachedSerializerMixin`:
 
 ```python
 from rest_framework import serializers
 
 # You must import the CachedSerializerMixin
-from rest_framework_cache import CachedSerializerMixin
+from rest_framework_cache import CachedSerializerMixin, cache_registry
 
 from .models import Comment
 
@@ -42,6 +52,8 @@ class CommentSerializer(serializers.ModelSerializer, CachedSerializerMixin):
     class Meta:
         model = Comment
 
+
+cache_registry.register(CommentSerializer)
 ```
 
 # Configuration
