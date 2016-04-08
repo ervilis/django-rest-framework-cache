@@ -1,8 +1,6 @@
-from .cache import cache
-from .utils import get_all_cache_keys
+from .utils import clear_for_instance
 
 
 def clear_instance(sender, instance, **kwargs):
     """Calls cache cleaner for current instance"""
-    keys = get_all_cache_keys(instance)
-    cache.delete_many(keys)
+    clear_for_instance(instance)

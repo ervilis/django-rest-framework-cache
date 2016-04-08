@@ -1,3 +1,4 @@
+from .cache import cache
 from .registry import cache_registry
 from .settings import api_settings
 
@@ -21,3 +22,9 @@ def get_all_cache_keys(instance):
         keys.append(get_cache_key(instance, serializer, 'http'))
         keys.append(get_cache_key(instance, serializer, 'https'))
     return keys
+
+
+def clear_for_instance(instance):
+    """Clear the cache for the given instance"""
+    keys = get_all_cache_keys(instance)
+    cache.delete_many(keys)
