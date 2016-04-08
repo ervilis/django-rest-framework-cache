@@ -17,7 +17,7 @@ class CachedSerializerMixin(serializers.ModelSerializer):
         Checks if the representation of instance is cached and adds to cache
         if is not.
         """
-        key = get_cache_key(instance, self.__class__)
+        key = self._get_cache_key(instance)
         cached = cache.get(key)
         if cached:
             return cached

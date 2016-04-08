@@ -11,5 +11,5 @@ class GetCacheKeyTestCase(unittest.TestCase):
         instance = TestModel()
         instance.id = 1000
         serializer = TestSerializer()
-        key = get_cache_key(instance, serializer.__class__)
-        self.assertEqual(key, "tests.TestModel.TestSerializer:1000")
+        key = get_cache_key(instance, serializer.__class__, 'http')
+        self.assertEqual(key, "http.tests.TestModel.TestSerializer:1000")
