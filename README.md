@@ -41,8 +41,9 @@ To use the DRF cache you must register your serializer into cache registry ( suc
 ```python
 from rest_framework import serializers
 
-# You must import the CachedSerializerMixin
-from rest_framework_cache import CachedSerializerMixin, cache_registry
+# You must import the CachedSerializerMixin and cache_registry
+from rest_framework_cache.serializers import CachedSerializerMixin
+from rest_framework_cache.registry import cache_registry
 
 from .models import Comment
 
@@ -58,7 +59,7 @@ cache_registry.register(CommentSerializer)
 
 # Configuration
 
-To the cache successfuly work you must configure the Django CACHES setting. We recomend that you take a look on Django cache docs here [https://docs.djangoproject.com/en/1.9/topics/cache/](https://docs.djangoproject.com/en/1.9/topics/cache/#setting-up-the-cache)
+To the cache successfully work you must configure the Django CACHES setting. We recomend that you take a look on Django cache docs here [https://docs.djangoproject.com/en/1.9/topics/cache/](https://docs.djangoproject.com/en/1.9/topics/cache/#setting-up-the-cache)
 
 
 ## Using cache backend different of the default
@@ -84,6 +85,17 @@ REST_FRAMEWORK_CACHE = {
     'DEFAULT_CACHE_BACKEND': 'rest_backend',
 }
 # ...
+```
+
+## Cache timeout
+
+You can set the cache timeout using `DEFAULT_CACHE_TIMEOUT`.
+
+```python
+REST_FRAMEWORK_CACHE = {
+    'DEFAULT_CACHE_TIMEOUT': 86400, # Default is 1 day
+}
+
 ```
 
 
