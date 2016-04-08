@@ -1,4 +1,5 @@
 from django.db.models import signals
+from django.utils.module_loading import autodiscover_modules
 
 from .exceptions import AlreadyRegistered
 
@@ -35,8 +36,11 @@ class CacheRegistry:
     def get(self, model):
         return self._registry.get(model, [])
 
+    def autodiscover(self):
+        autodiscover_modules('serializers')
+
 
 # This global object represents the default CacheRegistry, for the common case.
 # You can instantiate CacheRegistry in your own code to create a custom
 # register.
-registry = CacheRegistry()
+cache_registry = CacheRegistry()
