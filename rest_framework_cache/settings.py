@@ -20,8 +20,8 @@ from django.test.signals import setting_changed
 DEFAULTS = {
     'DEFAULT_CACHE_BACKEND': 'default',
     'DEFAULT_CACHE_TIMEOUT': 86400,
-    'SERIALIZER_CACHE_KEY_FORMAT': '{app_label}.{model_name}.{serializer_name}'
-                                   ':{id}',
+    'SERIALIZER_CACHE_KEY_FORMAT': '{protocol}.{app_label}.{model_name}.'
+                                   '{serializer_name}:{id}',
 
 }
 
